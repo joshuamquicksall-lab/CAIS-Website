@@ -1,0 +1,79 @@
+:root {
+  --cais-blue: #1e4aa8;
+  --cais-blue-2: #183d8c;
+  --cais-ink: #333333;
+  --cais-accent: #29ba96;
+}
+
+body { 
+  color: var(--cais-ink); 
+  font-synthesis-weight: none; 
+}
+
+h1,h2,h3,h4,h5,h6,p { 
+  color: #333333; 
+}
+
+/* Hero sections */
+.hero, .coc-hero, .cfp-hero {
+  position: relative;
+  background: url('../images/CAIS_hero1.png') center/cover no-repeat;
+  color: #fff;
+  padding: 4.5rem 0;
+}
+
+.hero h1, .hero p,
+.coc-hero h1, .coc-hero p,
+.cfp-hero h1, .cfp-hero p {
+  color: #fff;
+}
+
+.badge-cais { background: var(--cais-accent); }
+
+/* Shared elements */
+.section-title { font-weight: 700; letter-spacing: .2px; margin-top:0; }
+.anchor { scroll-margin-top: 84px; }
+
+/* Cards */
+.card-quiet, .info-card {
+  border: 1px solid #dee3ec;
+  border-radius: .5rem;
+  padding: 1.5rem;
+  background: #fff;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.card-quiet:hover, .info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+  border-color: #cfd7e6;
+}
+
+.program-card .ratio {
+  background:#000;
+  border-radius:.5rem;
+  overflow:hidden;
+}
+
+.program-card img.program-img {
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+
+.highlight-box {
+  background:#e9f2fb;
+  padding:1.5rem;
+  border-radius:.5rem;
+  height:100%;
+}
+
+.quick-links-callout {
+  background:#f1f3f9;
+  border-radius:.5rem;
+  padding:1.5rem;
+}
+
+.banded {
+  background:#f8f9fb;
+  padding:2rem;
+  border-radius:.5rem;
+}
+```
