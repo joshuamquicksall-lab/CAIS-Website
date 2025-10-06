@@ -64,7 +64,7 @@ h1, h2, h3, h4, h5, h6, p {
   margin-bottom: 1.0rem;
 }
 
-/* Clear space enforcement - prevents other elements from crowding */
+/* Clear space enforcement - prevents other elements from crowdinng */
 .acm-mark-link {
   padding: 12px;
   margin: -24px;
