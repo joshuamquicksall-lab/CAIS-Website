@@ -51,6 +51,44 @@ h1, h2, h3, h4, h5, h6, p {
   color: #fff;
 }
 
+/* ACM Mark */
+.acm-mark {
+  max-height: 90px;
+  width: auto;
+  opacity: 0.95;
+  display: block;
+}
+
+.acm-mark-link {
+  display: inline-block;
+  margin-bottom: 1.0rem;
+}
+
+/* Clear space enforcement - prevents other elements from crowdinng */
+.acm-mark-link {
+  padding: 12px;
+  margin: -24px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .acm-mark {
+    height: 12px;
+  }
+  
+  .acm-mark-link {
+    padding: 5px;
+    margin: -18px;
+    margin-bottom: 0;
+  }
+}
+
+.hero h1, .hero p,
+.coc-hero h1, .coc-hero p,
+.cfp-hero h1, .cfp-hero p {
+  color: #fff;
+}
+
 .badge-cais { 
   background: var(--cais-accent); 
 }
