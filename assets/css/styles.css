@@ -57,6 +57,13 @@ h1, h2, h3, h4, h5, h6, p {
     width: auto;
     opacity: 0.95;
     display: block;
+    /* Add filter for better visibility on dark backgrounds */
+    filter: brightness(0) invert(1);
+    transition: opacity 0.2s ease;
+}
+
+.acm-mark:hover {
+    opacity: 1;
 }
 
 .acm-mark-link {
@@ -67,8 +74,8 @@ h1, h2, h3, h4, h5, h6, p {
 /* Clear space enforcement - prevents other elements from crowding */
 .acm-mark-link {
     padding: 12px;
-    margin: -12px;
-    margin-bottom: 0.5rem;
+    margin: -24px;
+    margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
@@ -78,13 +85,9 @@ h1, h2, h3, h4, h5, h6, p {
 
     .acm-mark-link {
         padding: 8px;
-        margin: -8px;
-        margin-bottom: 0.5rem;
+        margin: -18px;
+        margin-bottom: 0;
     }
-}
-
-.badge-cais {
-    background: var(--cais-accent);
 }
 
 /* Shared elements */
