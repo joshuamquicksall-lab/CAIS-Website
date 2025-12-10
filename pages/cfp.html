@@ -239,6 +239,11 @@
       border-bottom: 2px solid var(--terracotta-deep);
     }
 
+    .nav-link.disabled {
+      color: var(--silver) !important;
+      border-bottom: 2px solid transparent;
+    }
+
     /* Badges */
     .badge {
       background-color: var(--davys-gray);
@@ -271,8 +276,8 @@
     }
 
     .navbar-brand {
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
+      padding: 0;
+      padding-top: 2px; /* Offset nav-link border-bottom */
     }
 
     /* Remove all rounded corners */
@@ -312,7 +317,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="../index.html#why">Why CAIS</a></li>
           <li class="nav-item"><a class="nav-link" href="../index.html#program">Program</a></li>
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Call for Papers</a></li>
+          <li class="nav-item"><a class="nav-link disabled" href="#" aria-disabled="true">Call for Papers</a></li>
           <li class="nav-item"><a class="nav-link" href="../index.html#contact">Contact</a></li>
         </ul>
       </div>

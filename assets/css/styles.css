@@ -80,6 +80,11 @@ h1, h2, h3, h4, h5, h6, p {
     border-bottom: 1px solid var(--platinum);
 }
 
+.navbar-brand {
+    padding: 0;
+    padding-top: 2px; /* Offset nav-link border-bottom */
+}
+
 .nav-link {
     color: var(--eerie-black) !important;
     font-weight: 500;
