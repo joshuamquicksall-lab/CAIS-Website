@@ -1,23 +1,54 @@
+/* ============================================
+   CAIS 2026 - Design System
+   Color Palette: Terracotta + Olive + Warm Monochrome
+   Philosophy: "Less, but better" - Dieter Rams
+   ============================================ */
+
 :root {
-    --cais-accent: #ff5820;
-    --cais-text: #333A3F;
-    --cais-bg-white: #ffffff;
-    --cais-bg-light: #f8f9fa;
-    --cais-border: #e0e0e0;
-    --cais-border-light: #eeeeee;
+    /* Terracotta System (Primary Accent - 20-25% max) */
+    --terracotta-deep: #B8593E;
+    --terracotta-medium: #C4735A;
+    --terracotta-light: #D89380;
+
+    /* Olive System (CMPND Connection - 10-15%) */
+    --olive-moss: #6B7F5A;
+    --olive-clay: #956C58;
+    --olive-sage: #8A9E78;
+
+    /* Warm Monochrome Foundation (60-70%) */
+    --seasalt: #FAFAF8;
+    --eerie-black: #252523;
+    --davys-gray: #5E5D59;
+    --silver: #C7C6C5;
+    --platinum: #e8e7e7;
+
+    /* Legacy aliases for compatibility */
+    --cais-accent: var(--terracotta-deep);
+    --cais-text: var(--eerie-black);
+    --cais-bg-white: var(--seasalt);
+    --cais-bg-light: var(--platinum);
+    --cais-border: var(--silver);
+    --cais-border-light: var(--platinum);
 }
 
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
 body {
-    color: var(--cais-text);
-    background-color: var(--cais-bg-white);
+    color: var(--eerie-black);
+    background-color: var(--seasalt);
     font-synthesis-weight: none;
 }
 
 h1, h2, h3, h4, h5, h6, p {
-    color: var(--cais-text);
+    color: var(--eerie-black);
 }
 
-/* Skip link for accessibility */
+/* ============================================
+   ACCESSIBILITY - Skip Link
+   ============================================ */
+
 .visually-hidden-focusable:not(:focus):not(:focus-within) {
     position: absolute !important;
     width: 1px !important;
@@ -40,18 +71,52 @@ h1, h2, h3, h4, h5, h6, p {
     white-space: normal !important;
 }
 
-/* Hero sections */
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.navbar {
+    background-color: var(--seasalt) !important;
+    border-bottom: 1px solid var(--platinum);
+}
+
+.nav-link {
+    color: var(--eerie-black) !important;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: border-color 200ms linear;
+}
+
+.nav-link:hover {
+    color: var(--eerie-black) !important;
+    border-bottom: 2px solid var(--terracotta-deep);
+}
+
+.nav-link.active {
+    color: var(--eerie-black) !important;
+    border-bottom: 2px solid var(--terracotta-deep);
+}
+
+.nav-link.disabled {
+    color: var(--silver) !important;
+    border-bottom: 2px solid transparent;
+}
+
+/* ============================================
+   HERO SECTIONS
+   ============================================ */
+
 .hero, .coc-hero, .cfp-hero {
     position: relative;
     background: url('../images/hero ultralight gradient.png') center/cover no-repeat;
-    color: var(--cais-text);
+    color: var(--eerie-black);
     padding: 4.5rem 0;
 }
 
 .hero h1, .hero p,
 .coc-hero h1, .coc-hero p,
 .cfp-hero h1, .cfp-hero p {
-    color: var(--cais-text);
+    color: var(--eerie-black);
 }
 
 /* ACM Mark */
@@ -66,10 +131,6 @@ h1, h2, h3, h4, h5, h6, p {
 .acm-mark-link {
     display: inline-block;
     margin-bottom: 1.0rem;
-}
-
-/* Clear space enforcement - prevents other elements from crowding */
-.acm-mark-link {
     padding: 12px;
     margin: -24px;
     margin-bottom: 0;
@@ -87,41 +148,139 @@ h1, h2, h3, h4, h5, h6, p {
     }
 }
 
-.badge-cais {
-    background: var(--cais-accent);
-    color: var(--cais-bg-white);
+/* ============================================
+   BUTTONS - Outlined by default, filled on hover
+   ============================================ */
+
+/* Primary CTA - Terracotta outlined */
+.btn-primary {
+    background: transparent;
+    border: 2px solid var(--terracotta-deep);
+    color: var(--terracotta-deep);
+    border-radius: 0;
+    font-weight: 600;
+    transition: background-color 200ms linear, color 200ms linear;
 }
 
-/* Shared elements */
-.section-title {
-    font-weight: 700;
-    letter-spacing: .2px;
-    margin-top: 0;
-    color: var(--cais-text);
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--terracotta-deep);
+    border-color: var(--terracotta-deep);
+    color: var(--seasalt);
 }
 
-.anchor {
-    scroll-margin-top: 84px;
+.btn-primary:active {
+    background-color: var(--terracotta-deep);
+    border: 3px solid var(--terracotta-deep);
+    color: var(--seasalt);
 }
 
-/* Cards */
-.card-quiet, .info-card {
-    border: 1px solid var(--cais-border);
-    border-radius: .5rem;
+/* Outline Primary - Same as primary (both outlined) */
+.btn-outline-primary {
+    background: transparent;
+    border: 2px solid var(--terracotta-deep);
+    color: var(--terracotta-deep);
+    border-radius: 0;
+    font-weight: 600;
+    transition: background-color 200ms linear, color 200ms linear;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--terracotta-deep);
+    border-color: var(--terracotta-deep);
+    color: var(--seasalt);
+}
+
+/* Secondary CTA - Silver outlined */
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--silver);
+    color: var(--eerie-black);
+    border-radius: 0;
+    transition: border-color 200ms linear;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background: transparent;
+    border-color: var(--olive-moss);
+    color: var(--eerie-black);
+}
+
+/* Light button (used in CTA band) */
+.btn-light {
+    background: transparent;
+    border: 2px solid var(--eerie-black);
+    color: var(--eerie-black);
+    border-radius: 0;
+    font-weight: 600;
+    transition: background-color 200ms linear, color 200ms linear;
+}
+
+.btn-light:hover,
+.btn-light:focus {
+    background-color: var(--eerie-black);
+    border-color: var(--eerie-black);
+    color: var(--seasalt);
+}
+
+/* Ghost/Tertiary */
+.btn-ghost {
+    border: none;
+    color: var(--davys-gray);
+    text-decoration: underline;
+    background: transparent;
+}
+
+.btn-ghost:hover {
+    color: var(--olive-moss);
+}
+
+/* ============================================
+   CARDS - Silver borders, olive hover
+   ============================================ */
+
+.card, .card-quiet, .info-card {
+    border: 1px solid var(--silver);
+    border-radius: 0;
     padding: 1.5rem;
-    background: var(--cais-bg-white);
-    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    background: var(--seasalt);
+    transition: border-color 200ms linear;
 }
 
-.card-quiet:hover, .info-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(51, 58, 63, 0.08);
-    border-color: var(--cais-text);
+.card:hover, .card-quiet:hover, .info-card:hover {
+    border-color: var(--olive-moss);
+    /* No transform or shadow */
 }
 
+/* Emphasis card (keynote speakers, featured content) */
+.card-emphasis {
+    border: 1px solid var(--terracotta-deep);
+    border-radius: 0;
+    padding: 1.5rem;
+    background: linear-gradient(
+        to bottom,
+        rgba(216, 147, 128, 0.08),
+        transparent 30%
+    );
+}
+
+.card-title {
+    color: var(--eerie-black);
+    font-weight: 700;
+}
+
+/* Dates card - Terracotta border for emphasis */
+.dates-card {
+    border: 2px solid var(--terracotta-deep);
+    border-radius: 0;
+}
+
+/* Program card images */
 .program-card .ratio {
-    background: var(--cais-bg-light);
-    border-radius: .5rem;
+    background: var(--platinum);
+    border-radius: 0;
     overflow: hidden;
 }
 
@@ -139,218 +298,294 @@ h1, h2, h3, h4, h5, h6, p {
     opacity: 1;
 }
 
+/* ============================================
+   HIGHLIGHT & CALLOUT BOXES
+   ============================================ */
+
 .highlight-box {
-    background: var(--cais-bg-light);
+    background: rgba(149, 108, 88, 0.05); /* clay at 5% */
     padding: 1.5rem;
-    border-radius: .5rem;
+    border-radius: 0;
     height: 100%;
-    border: 1px solid var(--cais-border-light);
+    border: 1px solid var(--platinum);
 }
 
 .quick-links-callout {
-    background: var(--cais-bg-light);
-    border-radius: .5rem;
+    background: var(--platinum);
+    border-radius: 0;
     padding: 1.5rem;
-    border: 1px solid var(--cais-border-light);
+    border: 1px solid var(--silver);
 }
 
 .banded {
-    background: var(--cais-bg-light);
+    background: var(--platinum);
     padding: 2rem;
-    border-radius: .5rem;
+    border-radius: 0;
 }
 
-/* CTA Band - Accent color for high importance */
+/* ============================================
+   CTA BAND - Terracotta outlined container
+   ============================================ */
+
 .cta-band {
-    background: var(--cais-accent);
-    color: var(--cais-bg-white);
-    border-radius: .5rem;
+    background: transparent;
+    border: 2px solid var(--terracotta-deep);
+    color: var(--eerie-black);
+    border-radius: 0;
 }
 
 .cta-band h2, .cta-band p {
-    color: var(--cais-bg-white);
+    color: var(--eerie-black);
 }
 
-/* Dates card (CFP sidebar) - Accent border for importance */
-.dates-card {
-    border: 2px solid var(--cais-accent);
-}
+/* ============================================
+   LINKS
+   ============================================ */
 
-/* Remove sticky positioning from sidebar */
-.sticky-top {
-    position: static !important;
-}
-
-/* Buttons - Accent color for primary actions */
-.btn-primary {
-    background-color: var(--cais-accent);
-    border-color: var(--cais-accent);
-    color: var(--cais-bg-white);
-}
-
-.btn-primary:hover {
-    background-color: #e64d1b;
-    border-color: #e64d1b;
-}
-
-.btn-outline-primary {
-    color: var(--cais-accent);
-    border-color: var(--cais-accent);
-}
-
-.btn-outline-primary:hover {
-    background-color: var(--cais-accent);
-    border-color: var(--cais-accent);
-    color: var(--cais-bg-white);
-}
-
-/* Links - Accent color for important links */
 a {
-    color: var(--cais-accent);
+    color: var(--terracotta-deep);
     text-decoration: none;
+    transition: color 200ms linear;
 }
 
 a:hover {
-    color: #e64d1b;
+    color: var(--terracotta-medium);
     text-decoration: underline;
 }
 
-/* Navigation */
-.navbar {
-    background-color: var(--cais-bg-white) !important;
-    border-bottom: 1px solid var(--cais-border-light);
-}
-
-.nav-link {
-    color: var(--cais-text) !important;
-}
-
-.nav-link:hover {
-    color: var(--cais-accent) !important;
-}
-
-.nav-link.active {
-    color: var(--cais-accent) !important;
-}
-
-/* Footer */
-footer {
-    background-color: var(--cais-bg-light);
-    color: var(--cais-text);
-    border-top: 1px solid var(--cais-border-light);
-}
-
+/* Footer links - different treatment */
 footer a {
-    color: var(--cais-text);
+    color: var(--eerie-black);
     text-decoration: none;
 }
 
 footer a:hover {
-    color: var(--cais-accent);
+    color: var(--olive-moss);
     text-decoration: underline;
 }
 
-/* Badges and Pills - Accent color for emphasis */
+/* ============================================
+   SECTION ELEMENTS
+   ============================================ */
+
+.section-title {
+    font-weight: 700;
+    letter-spacing: .2px;
+    margin-top: 0;
+    color: var(--eerie-black);
+}
+
+.anchor {
+    scroll-margin-top: 84px;
+}
+
+/* Section dividers */
+.section-divider {
+    width: 100%;
+    height: 2px;
+    background: var(--terracotta-deep);
+    margin: 64px 0;
+    border: none;
+}
+
+.section-divider-subtle {
+    width: 100%;
+    height: 1px;
+    background: var(--olive-clay);
+    margin: 48px 0;
+    border: none;
+}
+
+/* ============================================
+   BADGES
+   ============================================ */
+
 .badge {
-    background-color: var(--cais-accent);
-    color: var(--cais-bg-white);
+    background-color: var(--davys-gray);
+    color: var(--seasalt);
+    border-radius: 0;
+    font-weight: 600;
 }
 
-.bg-primary {
-    background-color: var(--cais-accent) !important;
+.badge-cais, .bg-primary {
+    background-color: var(--terracotta-deep) !important;
+    color: var(--seasalt);
 }
 
-.bg-light {
-    background-color: var(--cais-bg-light) !important;
+.badge.bg-secondary {
+    background-color: var(--davys-gray) !important;
+    color: var(--seasalt);
 }
 
-.text-primary {
-    color: var(--cais-accent) !important;
-}
+/* ============================================
+   ALERTS
+   ============================================ */
 
-.text-muted {
-    color: #999999 !important;
-}
-
-.border-primary {
-    border-color: var(--cais-accent) !important;
-}
-
-.border-top {
-    border-top: 1px solid var(--cais-border-light) !important;
-}
-
-.border-bottom {
-    border-bottom: 1px solid var(--cais-border-light) !important;
-}
-
-/* Alerts - Using accent for important notices */
 .alert-info {
-    background-color: var(--cais-bg-light);
-    border-color: var(--cais-border);
-    color: var(--cais-text);
+    background-color: rgba(138, 158, 120, 0.08); /* sage at 8% */
+    border: 1px solid var(--silver);
+    border-radius: 0;
+    color: var(--eerie-black);
 }
 
 .alert-warning {
-    background-color: #fff5f0;
-    border-color: var(--cais-accent);
-    color: var(--cais-text);
+    background-color: rgba(216, 147, 128, 0.08); /* terracotta-light at 8% */
+    border: 1px solid var(--terracotta-deep);
+    border-radius: 0;
+    color: var(--eerie-black);
 }
 
-/* Icons - Accent color for important icons */
-.bi[style*="color"] {
-    color: var(--cais-accent) !important;
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer {
+    background-color: var(--platinum);
+    color: var(--eerie-black);
+    border-top: 1px solid var(--silver);
 }
 
-/* Improve focus visibility - Using accent */
+/* ============================================
+   TABLES
+   ============================================ */
+
+table {
+    color: var(--eerie-black);
+}
+
+th, .table-header {
+    background: rgba(149, 108, 88, 0.08); /* clay at 8% */
+    border-bottom: 2px solid var(--silver);
+    color: var(--eerie-black);
+    font-weight: 700;
+}
+
+.table-row {
+    border-bottom: 1px solid var(--platinum);
+}
+
+.table-row:hover {
+    background: rgba(138, 158, 120, 0.05); /* sage at 5% */
+}
+
+/* ============================================
+   FORMS
+   ============================================ */
+
+.form-control, .input-field {
+    background-color: var(--seasalt);
+    border: 1px solid var(--silver);
+    border-radius: 0;
+    color: var(--eerie-black);
+    padding: 16px;
+    transition: border-color 200ms linear;
+}
+
+.form-control:focus, .input-field:focus {
+    border: 2px solid var(--terracotta-deep);
+    box-shadow: none;
+    outline: none;
+}
+
+.form-control.error, .input-field.error {
+    border: 2px solid #C84630;
+}
+
+/* ============================================
+   LIST GROUPS
+   ============================================ */
+
+.list-group-item {
+    background-color: var(--seasalt);
+    border-color: var(--platinum);
+    border-radius: 0;
+    color: var(--eerie-black);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.bg-light {
+    background-color: var(--platinum) !important;
+}
+
+.bg-white {
+    background-color: var(--seasalt) !important;
+}
+
+.text-primary {
+    color: var(--terracotta-deep) !important;
+}
+
+.text-muted {
+    color: var(--davys-gray) !important;
+}
+
+.border-primary {
+    border-color: var(--terracotta-deep) !important;
+}
+
+.border-top {
+    border-top: 1px solid var(--platinum) !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid var(--platinum) !important;
+}
+
+.border-start {
+    border-left-width: 3px !important;
+}
+
+/* ============================================
+   FOCUS STATES - Accessibility
+   ============================================ */
+
 a:focus, button:focus, .btn:focus {
-    outline: 2px solid var(--cais-accent);
+    outline: 2px solid var(--terracotta-deep);
     outline-offset: 2px;
 }
 
-/* List groups */
-.list-group-item {
-    background-color: var(--cais-bg-white);
-    border-color: var(--cais-border-light);
-    color: var(--cais-text);
+/* ============================================
+   BOOTSTRAP OVERRIDES - Subtle border radius (4px)
+   ============================================ */
+
+.card, .alert, .badge, .btn, .form-control, 
+.input-group-text, .modal-content, .dropdown-menu,
+.nav-pills .nav-link, .navbar-toggler,
+.card-quiet, .info-card, .highlight-box, .dates-card,
+.cta-band, .list-group-item {
+    border-radius: 4px !important;
 }
 
-/* Tables */
-table {
-    color: var(--cais-text);
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .hero, .coc-hero, .cfp-hero {
+        padding: 3rem 0;
+    }
 }
 
-th {
-    color: var(--cais-text);
-    background-color: var(--cais-bg-light);
-}
+/* ============================================
+   PRINT STYLES
+   ============================================ */
 
-/* Forms */
-.form-control {
-    background-color: var(--cais-bg-white);
-    border-color: var(--cais-border);
-    color: var(--cais-text);
-}
-
-.form-control:focus {
-    border-color: var(--cais-accent);
-    box-shadow: 0 0 0 0.2rem rgba(255, 88, 32, 0.25);
-}
-
-/* Print styles */
 @media print {
     .navbar, footer, .btn, .cta-band {
         display: none;
     }
 
     body {
-        color: var(--cais-text);
-        background: var(--cais-bg-white);
+        color: var(--eerie-black);
+        background: var(--seasalt);
     }
 
     a {
         text-decoration: none;
-        color: var(--cais-text);
+        color: var(--eerie-black);
     }
 
     a[href^="http"]:after {
